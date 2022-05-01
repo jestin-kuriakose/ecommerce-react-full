@@ -16,10 +16,7 @@
 }
 
 .logo {
-  font-weight: bold;
-  font-size: 30px;
-  color: darkblue;
-  cursor: pointer;
+  padding-top: 20px;
 }
 
 .topRight{

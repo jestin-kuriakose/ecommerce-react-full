@@ -8,7 +8,8 @@ const ProductSchema = new mongoose.Schema({
     size: { type: Array},
     color: { type: Array},
     price: { type: Number, required: true},
-    inStock: { type: Boolean, default: true}
+    inStock: { type: Boolean, default: true},
+    stock: { type: Number, default: 0}
 }, { timestamps: true });
 
 module.exports = mongoose.model("Product", ProductSchema) 

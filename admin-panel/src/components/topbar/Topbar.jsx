@@ -7,7 +7,7 @@ export default function Topbar() {
     <div className="topbar">
       <div className="topbarWrapper">
         <div className="topLeft">
-          <span className="logo">lamaadmin</span>
+          <img width="140px" className="logo" src="https://teslaelectronics.ca/wp-content/uploads/2022/01/Logo-B-PNG-Transparent.png"></img>
         </div>
         <div className="topRight">
           <div className="topbarIconContainer">

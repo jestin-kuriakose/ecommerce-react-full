@@ -24,7 +24,7 @@ export default function ProductList() {
     {
       field: "product",
       headerName: "Product",
-      width: 200,
+      width: 300,
       renderCell: (params) => {
         return (
           <div className="productListItem">
@@ -34,7 +34,7 @@ export default function ProductList() {
         );
       },
     },
-    { field: "inStock", headerName: "Stock", width: 150 },
+    { field: "stock", headerName: "Stock", width: 150 },
    
     {
       field: "price",
@@ -63,6 +63,9 @@ export default function ProductList() {
 
   return (
     <div className="productList">
+    <Link to="/newproduct">
+      <button className="addProductButton">Create new product</button>
+    </Link>
       <DataGrid
         rows={products}
         disableSelectionOnClick

@@ -1,5 +1,6 @@
 import { Facebook, Instagram, MailOutline, Phone, Pinterest, Room, Twitter } from '@material-ui/icons'
 import styled from "styled-components"
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
     display: flex;
@@ -27,6 +28,7 @@ const List = styled.ul`
 const ListItem = styled.li`
     width: 50%;
     margin-bottom: 10px;
+    text-decoration: none;
 ` 
 
 
@@ -67,8 +69,8 @@ const Footer = () => {
   return (
     <Container>
         <Left>
-            <Logo>JESTIN</Logo>
-            <Desc>We offer different varieties of phones ranging from Apple, Samsung, Huawei and we also offer shipping for all our orders</Desc>
+            <Logo><Link to={'/'}><img width={180} src={"https://teslaelectronics.ca/wp-content/uploads/2022/01/Logo-B-PNG-Transparent.png"} /></Link></Logo>
+            <Desc>Tesla Electronics is a supplier of Cellphone repair parts. Quality is key in Cellphone Repair Industry and that is our aim as a company- to provide high quality, Industry standard repair parts.</Desc>
             <SocialContainer>
                 <SocialIcon color="3B5999">
                     <Facebook/>
@@ -87,14 +89,13 @@ const Footer = () => {
         <Center>
             <Title>Useful Links</Title>
             <List>
-                <ListItem>Home</ListItem>
-                <ListItem>Cart</ListItem>
-                <ListItem>Men Fashion</ListItem>
-                <ListItem>Women Fashion</ListItem>
-                <ListItem>Accessories</ListItem>
-                <ListItem>My Account</ListItem>
-                <ListItem>Order Tracking</ListItem>
-                <ListItem>Wishlist</ListItem>
+                <ListItem><Link to={'/'}>Home</Link></ListItem>
+                <ListItem><Link to={'/'}>Cart</Link></ListItem>
+                <ListItem><Link to={'/'}>My Account</Link></ListItem>
+                <ListItem><Link to={'/'}>Back Glass</Link></ListItem>
+                <ListItem><Link to={'/'}>Housing</Link></ListItem>
+                <ListItem><Link to={'/'}>Display</Link></ListItem>
+                
             </List>
         </Center>
         <Right>
@@ -102,7 +103,7 @@ const Footer = () => {
             <ContactItem><Room style={{marginRight:"10px"}}/>79 Florence Ave, Kitchener ON</ContactItem>
             <ContactItem><Phone style={{marginRight:"10px"}}/>+1 519-722-0063</ContactItem>
             <ContactItem><MailOutline style={{marginRight:"10px"}}/>jestink@live.com</ContactItem>
-            <Payment src="https://i.ibb.co/Ybfw1WM/evie-s-vz3-IQy0-LOa-A-unsplash-removebg-preview.png"/>
+            <Payment src="https://teslaelectronics.ca/wp-content/uploads/2022/05/images.jpg"/>
         </Right>
     </Container>
   )

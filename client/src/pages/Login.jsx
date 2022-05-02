@@ -2,6 +2,10 @@ import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import styled from "styled-components"
 import { login } from "../redux/apiCalls"
+import Announcement from '../components/Announcement'
+import Navbar from '../components/Navbar'
+import Newsletter from '../components/Newsletter'
+import Footer from '../components/Footer'
 
 const Container = styled.div`
     width: 100vw;
@@ -65,19 +69,26 @@ const Login = () => {
         login(dispatch, {username, password})
     }
   return (
-    <Container>
-        <Wrapper>
-            <Title>SIGN IN</Title>
-            <Form>
-                <Input placeholder="username" onChange={(e)=>setUsername(e.target.value)}/>
-                <Input placeholder="Password" type="password" onChange={(e)=>setPassword(e.target.value)}/>
-                <Button onClick={handleClick} disabled={isFetching}>LOGIN</Button>
-                {error && <Error>Something went wrong</Error>}
-                <Link>Forgot password?</Link>
-                <Link>Create a new account</Link>
-            </Form>
-        </Wrapper>
-    </Container>
+    <div>
+        <Announcement />
+        <Navbar />
+        
+        <Container>
+            <Wrapper>
+                <Title>SIGN IN</Title>
+                <Form>
+                    <Input placeholder="username" onChange={(e)=>setUsername(e.target.value)}/>
+                    <Input placeholder="Password" type="password" onChange={(e)=>setPassword(e.target.value)}/>
+                    <Button onClick={handleClick} disabled={isFetching}>LOGIN</Button>
+                    {error && <Error>Something went wrong</Error>}
+                    <Link>Forgot password?</Link>
+                    <Link>Create a new account</Link>
+                </Form>
+            </Wrapper>
+        </Container>
+        <Newsletter/>
+        <Footer/>
+    </div>
   )
 }
 

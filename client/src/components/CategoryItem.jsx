@@ -10,7 +10,7 @@ const Container = styled.div`
 const Image = styled.img`
     width: 100%;
     height: 100%;
-    object-fir: cover;
+    object-fit: contain;
 `
 const Info = styled.div`
     position: absolute;
@@ -23,7 +23,10 @@ const Info = styled.div`
     align-items: center;
     justify-content: center;
 `
-const Title = styled.h1``
+const Title = styled.h1`
+    color: white;
+    background-color: black;
+`
 const Button = styled.button`
     border: none;
     padding: 10px;

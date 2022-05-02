@@ -49,7 +49,8 @@ const ImgContainer = styled.div`
 `
 
 const Image = styled.img`
-  height: 80%;`
+  height: 70%;
+  padding-top: 30px;`
 
 const InfoContainer = styled.div`
   flex: 1;

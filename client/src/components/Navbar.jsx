@@ -4,7 +4,18 @@ import { ShoppingCartOutlined } from "@material-ui/icons";
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+    Redirect,
+    Navigate
+  } from "react-router-dom";
+import Register from '../pages/Register';
+import Login from '../pages/Login';
+import Cart from '../pages/Cart';
+import { logout } from "../redux/apiCalls";
 
 const Container = styled.div`
     height: 60px;
@@ -64,9 +75,18 @@ const Center = styled.div`
 
 const Navbar = () => {
     const quantity = useSelector(state => state.cart.quantity)
+    const user = useSelector((state)=> state.user)
+    const cUser = user.currentUser ? user.currentUser : false;
+    const dispatch = useDispatch()
 
    const cart = useSelector(state=>state.cart)
    console.log(cart)
+
+   const handleLogout = (e) => {
+       e.preventDefault();
+    logout(dispatch);
+   }
+   
   return (
     <Container>
         <Wrapper>
@@ -78,11 +98,12 @@ const Navbar = () => {
                 </SearchContainer>
             </Left>
 
-            <Link to={'/'}><Center><Logo>TESLA ELECTRONICS</Logo></Center></Link>
+            <Link to={'/'}><Center><img width={140} src={"https://teslaelectronics.ca/wp-content/uploads/2022/01/Logo-B-PNG-Transparent.png"} /></Center></Link>
 
             <Right>
-                <MenuItem>REGISTER</MenuItem>
-                <MenuItem>SIGN IN</MenuItem>
+                <MenuItem><Link to={'/register'} element={cUser ? <Navigate to="/" /> : <Register/>}>REGISTER</Link></MenuItem>
+                { !cUser && <MenuItem><Link to={'/login'} element={cUser ? <Navigate to="/" /> : <Register/>}>SIGN IN</Link></MenuItem>}
+                { cUser && <MenuItem onClick={handleLogout}><Link to={'/login'} element={cUser ? <Navigate to="/" /> : <Register/>}>LOGOUT</Link></MenuItem>}
                 <Link to="/cart">
                 <MenuItem>
                     <Badge badgeContent={quantity} color="primary">

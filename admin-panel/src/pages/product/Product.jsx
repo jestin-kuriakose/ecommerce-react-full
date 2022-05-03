@@ -9,7 +9,7 @@ import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/
 import app from "../../firebase";
 import { useDispatch } from "react-redux";
 import { updateProduct } from "../../redux/apiCalls";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -18,7 +18,7 @@ export default function Product() {
     const [file, setFile] = useState(null);
     const [cat, setCat] = useState([])
     const dispatch = useDispatch();
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const location = useLocation()
     const productId = location.pathname.split("/")[2];
@@ -98,7 +98,7 @@ export default function Product() {
             console.log(updProduct)
             updateProduct(productId, updProduct, dispatch)
         }
-        history.push('/products')
+        navigate('/products')
     }
 
 

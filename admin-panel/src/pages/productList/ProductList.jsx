@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteProduct, getProducts } from "../../redux/apiCalls";
+import Topbar from "../../components/topbar/Topbar";
+import Sidebar from "../../components/sidebar/Sidebar";
 
 export default function ProductList() {
 
@@ -62,18 +64,24 @@ export default function ProductList() {
   ];
 
   return (
-    <div className="productList">
-    <Link to="/newproduct">
-      <button className="addProductButton">Create new product</button>
-    </Link>
-      <DataGrid
-        rows={products}
-        disableSelectionOnClick
-        columns={columns}
-        getRowId={(row)=>row._id}
-        pageSize={8}
-        checkboxSelection
-      />
-    </div>
+    <>
+      <Topbar />
+      <div className="container">
+        <Sidebar />
+        <div className="productList">
+        <Link to="/newproduct">
+          <button className="addProductButton">Create new product</button>
+        </Link>
+          <DataGrid
+            rows={products}
+            disableSelectionOnClick
+            columns={columns}
+            getRowId={(row)=>row._id}
+            pageSize={8}
+            checkboxSelection
+          />
+        </div>
+        </div>
+    </>
   );
 }

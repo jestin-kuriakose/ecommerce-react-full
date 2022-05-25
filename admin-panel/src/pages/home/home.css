@@ -6,3 +6,10 @@
     display: flex;
     margin: 20px;
 }
+.sub {
+    display: flex;
+}
+
+.sub2 {
+    flex: 5;
+}

@@ -6,6 +6,8 @@ import WidgetSm from "../../components/widgetSm/WidgetSm";
 import WidgetLg from "../../components/widgetLg/WidgetLg";
 import { useEffect, useMemo, useState } from "react";
 import { userRequest } from "../../requestMethods";
+import Topbar from "../../components/topbar/Topbar";
+import Sidebar from "../../components/sidebar/Sidebar";
 
 export default function Home() {
   const [userStats, setUserStats] = useState([])
@@ -31,11 +33,18 @@ export default function Home() {
   
   return (
     <div className="home">
-      <FeaturedInfo />
-      <Chart data={userStats} title="User Analytics" grid dataKey="Active User"/>
-      <div className="homeWidgets">
-        <WidgetSm/>
-        <WidgetLg/>
+      <Topbar/>
+      <div className="sub">
+        <Sidebar/>
+        <div className="sub2">
+          <FeaturedInfo />
+          <Chart data={userStats} title="User Analytics" grid dataKey="Active User"/>
+          <div className="homeWidgets">
+          
+            <WidgetSm/>
+            <WidgetLg/>
+        </div>
+        </div>
       </div>
     </div>
   );

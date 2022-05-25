@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteProduct, getProducts } from "../../redux/apiCalls";
+import Topbar from "../../components/topbar/Topbar";
+import Sidebar from "../../components/sidebar/Sidebar";
 
 export default function ProductList() {
 
@@ -63,6 +65,10 @@ export default function ProductList() {
 
   return (
     <div className="productList">
+    <Topbar/>
+      <div className="sub">
+        <Sidebar/>
+        <div className="sub2">
       <DataGrid
         rows={products}
         disableSelectionOnClick
@@ -71,6 +77,8 @@ export default function ProductList() {
         pageSize={8}
         checkboxSelection
       />
+    </div>
+    </div>
     </div>
   );
 }

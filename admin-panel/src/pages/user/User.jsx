@@ -8,10 +8,16 @@ import {
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import "./user.css";
+import Topbar from "../../components/topbar/Topbar";
+import Sidebar from "../../components/sidebar/Sidebar";
 
 export default function User() {
   return (
     <div className="user">
+    <Topbar/>
+      <div className="sub">
+        <Sidebar/>
+        <div className="sub2">
       <div className="userTitleContainer">
         <h1 className="userTitle">Edit User</h1>
         <Link to="/newUser">
@@ -118,6 +124,8 @@ export default function User() {
           </form>
         </div>
       </div>
+    </div>
+    </div>
     </div>
   );
 }
